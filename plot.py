@@ -4,10 +4,6 @@ dict = {}
 with open('data.csv', 'r') as csvfile:
 	file = csv.reader(csvfile, delimiter=',')
 	for row in file:
-		#print row[5]
-		#print row[1]
-		#print row[14]
-		#print row[15]
 		if row[5] == 'Improper storage trash: res':
 			dict[row[1]] = [row[14], row[15]]
 
