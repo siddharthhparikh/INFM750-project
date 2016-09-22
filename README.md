@@ -6,3 +6,6 @@ Prediction of Housing violation and its causes
 
 ### Boston housing code violation dataset download
 [Click Here](https://data.cityofboston.gov/Permitting/Code-Enforcement-Building-and-Property-Violations/8sq6-p7et/data)
+
+### Project Website
+[Click Here](https://siddharthhparikh.github.io/INFM750-project/)
