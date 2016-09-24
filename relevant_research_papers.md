@@ -18,4 +18,32 @@ authors have used density of housing violations related to ashtma to predict a h
 
 [paper link](http://web.b.ebscohost.com.proxy-um.researchport.umd.edu/ehost/detail/detail?sid=2d316e0f-b4c5-4949-a59e-1976ffc29c9b%40sessionmgr103&vid=0&hid=115&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=103853646&db=cin20)
 
+
+**paper 2**
+
+Hardt NS, Muhamed S, Das R, Estrella R, Roth J. Neighborhood-level hot spot maps to inform delivery of primary care and allocation of social resources. Perm J. 2013;17(1):4–9.
+
+**abstract**
+
+Challenges to health care access in the US are forcing local policymakers and service delivery systems to find novel ways
+to address the shortage of primary care providers. The uninsured and underinsured face the greatest obstacles in accessing services.
+Geographic information systems mapping software was used to illustrate health disparities in Alachua County, FL; galvanize
+a community response; and direct reallocation of resources. The University of Florida Family Data Center created “hot
+spot” density maps of important health and social indicators to highlight the location of disparities at the neighborhood level.
+Maps were produced for Medicaid births, teen births, low birth weight, domestic violence incidents, child maltreatment reports,
+unexcused school absences, and juvenile justice referrals. Maps were widely shared with community partners, including local
+elected officials, law enforcement, educators, child welfare agencies, health care providers, and service organizations. This
+data sharing resulted in advocacy efforts to bring resources to the greatest-need neighborhoods in the county. Novel public-private
+partnerships were forged between the local library district, children and family service providers, and university administrators.
+Two major changes are detailed: a family resource center built in the neighborhood of greatest need and a mobile clinic staffed
+by physicians, nurses, physician assistants, health educators, and student and faculty volunteers. Density maps have several advantages. They require minimal explanation. Anyone familiar with local geographic features can quickly identify locations displaying health disparities. Personalizing health disparities by locating them geographically allows a community to translate data to action to improve
+health care access. 
+
+**relation**
+
+this paper used ESRI software to plot hot spots of disease prone area and based on the hotspot density, primary care is sent. on the same lines, if we plot a gaussian distribution of different violations then health inspector can choose to visit an area which has the highest density of violation occurence.
+
+[paper link] (https://www.thepermanentejournal.org/files/Winter2013/Allocation.pdf)
+
+
   
