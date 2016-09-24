@@ -16,6 +16,6 @@ Local agencies that enforce housing policies can partner with the health care sy
 
 authors have used density of housing violations related to ashtma to predict a hospitalized patient's risk of subsequent morbidity, i.e what is the probablity of the asthma patient getting admitted again within 12 months
 
-[link:](http://web.b.ebscohost.com.proxy-um.researchport.umd.edu/ehost/detail/detail?sid=2d316e0f-b4c5-4949-a59e-1976ffc29c9b%40sessionmgr103&vid=0&hid=115&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=103853646&db=cin20)
+[paper link](http://web.b.ebscohost.com.proxy-um.researchport.umd.edu/ehost/detail/detail?sid=2d316e0f-b4c5-4949-a59e-1976ffc29c9b%40sessionmgr103&vid=0&hid=115&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=103853646&db=cin20)
 
   
