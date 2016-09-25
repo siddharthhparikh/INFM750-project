@@ -57,4 +57,17 @@ we can try and reciprocate the model the authors have used here to see how the h
 
 [paper link] (http://ac.els-cdn.com/S0022519316000485/1-s2.0-S0022519316000485-main.pdf?_tid=94c1cb20-82ad-11e6-9ec8-00000aacb35e&acdnat=1474759452_07cda6c9e8ca16219014738993a6e3a0)
 
+**paper 4**
+
+Ning, Y., Yingya, Z., Ruchuan, W., & Malekian, R. (2016). Vehicle trajectory prediction based on Hidden Markov Model. KSII Transactions On Internet & Information Systems, 10(7), 3150-3170. doi:10.3837/tiis.2016.07.016
+
+**abstract**
+
+In Intelligent Transportation Systems (ITS), logistics distribution and mobile e-commerce, the real-time, accurate and reliable vehicle trajectory prediction has significant application value. Vehicle trajectory prediction can not only provide accurate location-based services, but also can monitor and predict traffic situation in advance, and then further recommend the optimal route for users. In this paper, firstly, we mine the double layers of hidden states of vehicle historical trajectories, and then determine the parameters of HMM (hidden Markov model) by historical data. Secondly, we adopt Viterbi algorithm to seek the double layers hidden states sequences corresponding to the just driven trajectory. Finally, we propose a new algorithm (DHMTP) for vehicle trajectory prediction based on the hidden Markov model of double layers hidden states, and predict the nearest neighbor unit of location information of the next k stages. The experimental results demonstrate that the prediction accuracy of the proposed algorithm is increased by 18.3% compared with TPMO algorithm and increased by 23.1% compared with Naive algorithm in aspect of predicting the next k phases' trajectories, especially when traffic flow is greater, such as this time from weekday morning to evening. Moreover, the time performance of DHMTP algorithm is also clearly improved compared with TPMO algorithm. [ABSTRACT FROM AUTHOR]
+
+**relation**
+
+this paper will help us understand how hmm model can be implemented in predicting the most probable violation
   
+[paper link] (http://web.b.ebscohost.com.proxy-um.researchport.umd.edu/ehost/detail/detail?vid=7&sid=a8417e53-516a-4237-90f9-824d0851c017%40sessionmgr106&hid=115&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=117402652&db=iih)
+
