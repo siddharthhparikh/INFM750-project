@@ -7,9 +7,7 @@ Beck, A. F., Huang, B., Chundur, R., & Kahn, R. S. (2014). Housing Code Violatio
 
 **abstract**
 
-Local agencies that enforce housing policies can partner with the health care system to target pediatric asthma care. 
-  These agencies retain data that can be used to pinpoint potential clusters of high asthma morbidity. 
-  We sought to assess whether the density of housing code violations in census tracts—the in-tract asthma-relevant violations (such as the presence of mold or cockroaches) divided by the number of housing units—was associated with population-level asthma morbidity and could be used to predict a hospitalized patient's risk of subsequent morbidity. 
+Local agencies that enforce housing policies can partner with the health care system to target pediatric asthma care. These agencies retain data that can be used to pinpoint potential clusters of high asthma morbidity. We sought to assess whether the density of housing code violations in census tracts—the in-tract asthma-relevant violations (such as the presence of mold or cockroaches) divided by the number of housing units—was associated with population-level asthma morbidity and could be used to predict a hospitalized patient's risk of subsequent morbidity. 
   We found that increased density in housing code violations was associated with population-level morbidity independent of poverty, and that the density explained 22 percent of the variation in rates of asthma-related emergency department visits and hospitalizations. Children who had been hospitalized for asthma had 1.84 greater odds of a revisit to the emergency department or a rehospitalization within twelve months if they lived in the highest quartile of housing code violation tracts, compared to those living in the lowest quartile. Integrating housing and health data could highlight at-risk areas and patients for targeted interventions.
 
 **relation:**
@@ -28,16 +26,15 @@ Hardt NS, Muhamed S, Das R, Estrella R, Roth J. Neighborhood-level hot spot maps
 Challenges to health care access in the US are forcing local policymakers and service delivery systems to find novel ways
 to address the shortage of primary care providers. The uninsured and underinsured face the greatest obstacles in accessing services.
 Geographic information systems mapping software was used to illustrate health disparities in Alachua County, FL; galvanize
-a community response; and direct reallocation of resources. The University of Florida Family Data Center created “hot
-spot” density maps of important health and social indicators to highlight the location of disparities at the neighborhood level.
+a community response; and direct reallocation of resources. The University of Florida Family Data Center created **“hot
+spot” density maps of important health and social indicators to highlight the location of disparities at the neighborhood level.**
 Maps were produced for Medicaid births, teen births, low birth weight, domestic violence incidents, child maltreatment reports,
 unexcused school absences, and juvenile justice referrals. Maps were widely shared with community partners, including local
 elected officials, law enforcement, educators, child welfare agencies, health care providers, and service organizations. This
 data sharing resulted in advocacy efforts to bring resources to the greatest-need neighborhoods in the county. Novel public-private
 partnerships were forged between the local library district, children and family service providers, and university administrators.
 Two major changes are detailed: a family resource center built in the neighborhood of greatest need and a mobile clinic staffed
-by physicians, nurses, physician assistants, health educators, and student and faculty volunteers. Density maps have several advantages. They require minimal explanation. Anyone familiar with local geographic features can quickly identify locations displaying health disparities. Personalizing health disparities by locating them geographically allows a community to translate data to action to improve
-health care access. 
+by physicians, nurses, physician assistants, health educators, and student and faculty volunteers. Density maps have several advantages. They require minimal explanation. Anyone familiar with local geographic features can quickly identify locations displaying health disparities. Personalizing health disparities by locating them geographically allows a community to translate data to action to improve health care access. 
 
 **relation**
 
@@ -45,5 +42,19 @@ this paper used ESRI software to plot hot spots of disease prone area and based 
 
 [paper link] (https://www.thepermanentejournal.org/files/Winter2013/Allocation.pdf)
 
+
+**paper 3**
+
+Rizzo, A., Pedalino, B., & Porfiri, M. (2016). A network model for Ebola spreading. Journal Of Theoretical Biology, 394212-222. doi:10.1016/j.jtbi.2016.01.015
+
+**abstract**
+
+The availability of accurate models for the spreading of infectious diseases has opened a new era in management and containment of epidemics. Models are extensively used to plan for and execute vaccination campaigns, to evaluate the risk of international spreadings and the feasibility of travel bans, and to inform prophylaxis campaigns. Even when no specific therapeutical protocol is available, as for the Ebola Virus Disease (EVD), models of epidemic spreading can provide useful insight to steer interventions in the field and to forecast the trend of the epidemic. **Here, we propose a novel mathematical model to describe EVD spreading based on activity driven networks (ADNs).** Our approach overcomes the simplifying assumption of homogeneous mixing, which is central to most of the mathematically tractable models of EVD spreading. In our ADN-based model, each individual is not bound to contact every other, and its network of contacts varies in time as a function of an activity potential. Our model contemplates the possibility of non-ideal and time-varying intervention policies, which are critical to accurately describe EVD spreading in afflicted countries. The model is calibrated from field data of the 2014 April-to-December spreading in Liberia. We use the model as a **predictive tool**, to emulate the dynamics of EVD in Liberia and offer a one-year projection, until December 2015. Our predictions agree with the current vision expressed by professionals in the field, who consider EVD in Liberia at its final stage. The model is also used to perform a what-if analysis to assess the efficacy of timely intervention policies. In particular, we show that an earlier application of the same intervention policy would have greatly reduced the number of EVD cases, the duration of the outbreak, and the infrastructures needed for the implementation of the intervention. 
+
+**relation**
+
+we can try and reciprocate the model the authors have used here to see how the housing code violations are getting spread
+
+[paper link] (http://ac.els-cdn.com/S0022519316000485/1-s2.0-S0022519316000485-main.pdf?_tid=94c1cb20-82ad-11e6-9ec8-00000aacb35e&acdnat=1474759452_07cda6c9e8ca16219014738993a6e3a0)
 
   
