@@ -8,4 +8,6 @@ Data: Boston city [data] (https://data.cityofboston.gov/Permitting/Code-Enforcem
 
 (http://dcra.dc.gov/service/dcra-schedule-housing-code-inspection)
 
-3. 
+3. Hidden Markov Models for the Prediction of Impending Faults
+
+(http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7419875)
