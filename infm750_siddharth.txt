@@ -1,0 +1,68 @@
+Data set exploratory analysis
+
+We plan to propose two research questions and analysis is broken into two part
+
+R1: Predict type of housing violation probability given geo-location on the map
+
+To tackle this research question we need dataset which has variety of violation and each has approximately similar samples. We plan to use Montgomary housing code violation dataset which has "N" violation category and sample size of each violation is given in the below table. 
+
+Walls/Ceiling - Interior	5988
+Solid Waste	5971
+Door	4747
+Yard	3570
+Automobile/Vehicle	3261
+Windows	2474
+Floor	1871
+Infestation	1679
+Bathtub Shower	1667
+Tree/Tree Limbs/Shrubbery	1654
+Trim	1621
+Light/Electrical Fixture	1402
+Smoke Detector	1372
+Walls/Ceiling - Exterior	1181
+
+Propose method: 
+
+1. Take dataset each violation and apply Gaussian Mixture Model for each violation. We will find k centers and k Gaussians in d dimension. For simplicity lets assume d=2 (lat and long). 
+
+2. We can find probability distribution using this Gaussians for lat,long plane. 
+
+3. For given parameters (lat and long), calculate the maximum probability of violation and predict the violation using the probability distribution. 
+
+
+R2. Verify that violation occurrence is transitive in nature
+
+We hypothesis that violations are transitive and can spread. In simple terms "If I see my neighbor not throwing his trash I will stop throwing my trash". We need large amount of samples for any specific violation. To verify this hypothesis, we plan to use Boston Housing Violation dataset which has approximately 150000 for "trash" violation. 
+
+Below is the animation of violation happening each day and we can see that violations are growing around a center (some are random and sparse). We can see that some of the streets have high violation density from the animation which also corroborates our first claim. 
+
+Proposed Method: 
+
+We suggest two methods to verify our model
+
+We plan to use Hidden Markov Model (similar model, might have to change existing structure of model to accommodate new features of the hypothesized model). 
+
+Method 1: 
+
+We assume that each neighborhood have a distinct property of spreading
+
+1. Divide data into k clusters using any clustering algorithm (i.e. K-means) 
+All the clusters should be of the average size of the neighborhood.
+
+2. For each cluster generate a separate HMM model. 
+
+3. For any unknown cluster (when violation starts happening in certain region) generate a HMM model for the test cluster
+
+4. Find the closest HMM model generated in step 2 for our test cluster HMM model (Use regression like techniques)
+
+5. Predict next violation based on the closed HMM model behavior. 
+
+Method 2:
+
+1. Generate HMM model for the whole area for certain time (Lets say we take base 2014, we make model for data until 2014) 
+
+2. For each neighboring node, predict the probability of changing of state from "no violation" to "violation" and verify that against violation data collected after 2014.
+
+R3. [Optional] If we get time we will try to predict probability of any violation happening on the same place given a certain violation happened.
+
+We plan to use Long Short Term Model (LSTM). We have not explored any dataset for this research question yet. 
