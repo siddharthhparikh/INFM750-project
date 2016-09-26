@@ -67,7 +67,6 @@ In Intelligent Transportation Systems (ITS), logistics distribution and mobile e
 
 **relation**
 
-this paper will help us understand how hmm model can be implemented in predicting the most probable violation
-  
+this paper will help us understand how hmm model can be implemented in predict where the next violation would happen.  
 [paper link] (http://web.b.ebscohost.com.proxy-um.researchport.umd.edu/ehost/detail/detail?vid=7&sid=a8417e53-516a-4237-90f9-824d0851c017%40sessionmgr106&hid=115&bdata=JnNpdGU9ZWhvc3QtbGl2ZQ%3d%3d#AN=117402652&db=iih)
 
