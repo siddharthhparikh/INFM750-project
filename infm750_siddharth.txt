@@ -2,10 +2,11 @@ Data set exploratory analysis
 
 We plan to propose two research questions and analysis is broken into two part
 
-R1: Predict type of housing violation probability given geo-location on the map
+R1: Predict type of housing violation based on the maximum probability at given geo-location on the map
 
 To tackle this research question we need dataset which has variety of violation and each has approximately similar samples. We plan to use Montgomary housing code violation dataset which has "N" violation category and sample size of each violation is given in the below table. 
 
+--montogomery dataset
 Walls/Ceiling - Interior	5988
 Solid Waste	5971
 Door	4747
@@ -21,6 +22,12 @@ Light/Electrical Fixture	1402
 Smoke Detector	1372
 Walls/Ceiling - Exterior	1181
 
+--boston dataset
+improper storage trash:res 188944
+overgrown weeds on property 36293
+overfilling of barrel/dumpster 29223
+failure clear sidewalk - snow 
+
 Propose method: 
 
 1. Take dataset each violation and apply Gaussian Mixture Model for each violation. We will find k centers and k Gaussians in d dimension. For simplicity lets assume d=2 (lat and long). 
@@ -30,8 +37,7 @@ Propose method:
 3. For given parameters (lat and long), calculate the maximum probability of violation and predict the violation using the probability distribution. 
 
 
-R2. Verify that violation occurrence is transitive in nature
-
+R2. verify that there is a spreading pattern among the housing code violations
 We hypothesis that violations are transitive and can spread. In simple terms "If I see my neighbor not throwing his trash I will stop throwing my trash". We need large amount of samples for any specific violation. To verify this hypothesis, we plan to use Boston Housing Violation dataset which has approximately 150000 for "trash" violation. 
 
 Below is the animation of violation happening each day and we can see that violations are growing around a center (some are random and sparse). We can see that some of the streets have high violation density from the animation which also corroborates our first claim. 
