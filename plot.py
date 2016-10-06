@@ -1,7 +1,7 @@
 import csv 
 import operator
 dict = {}
-with open('data.csv', 'r') as csvfile:
+with open('datasets/data_boston.csv', 'r') as csvfile:
 	file = csv.reader(csvfile, delimiter=',')
 	for row in file:
 		if row[5] == 'Improper storage trash: res':
@@ -17,10 +17,17 @@ import matplotlib.pyplot as plt
 plt.ion()
 plt.xlim([42.2,42.4])
 plt.ylim([-71.25,-70.97])
+itr = 0
 for item in sorted_x:
 	#print item[1][0]
 	plt.scatter(float(item[1][0]), float(item[1][1]))
 	plt.pause(0.01)
-
-while True:
+	fname = '_tmp%05d.png'%itr
+	plt.savefig(fname)
+	itr = itr + 1 
 	plt.pause(0.01)
+
+import os
+os.system("rm movie.mp4")
+os.system("ffmpeg -r "+str(10)+" -b 1800 -i _tmp%05d.png movie.mp4")
+os.system("rm _tmp*.png")
