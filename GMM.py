@@ -50,20 +50,22 @@ def plot_results(X, Y_, means, covariances, index, title):
 
 from sklearn import mixture
 def fit_samples(samples):
-	gmix = mixture.BayesianGaussianMixture(n_components=10, covariance_type='full', max_iter=1000, verbose=1)
+	gmix = mixture.BayesianGaussianMixture(n_components=100, covariance_type='full', max_iter=1000, verbose=1)
 	gmix.fit(samples)
 	return gmix
 
 models = {}
 test_data = {}
+import random
 for key,value in dict.iteritems():
-	if len(value) > 10000:
-		models[key] = fit_samples(np.array(value[:8000]))
-		test_data[key] = np.array(value[8000:10000])
+	if len(value) > 15000:
+		random.shuffle(value)
+		models[key] = fit_samples(np.array(value[:15000]))
+		test_data[key] = np.array(value[15000:19000])
 
 import math
 def gaussian_value(x,mean,covariance):
-	return (math.exp(-(math.pow((x[0]-mean[0])/covariance[0],2)+math.pow((x[1]-mean[1])/covariance[1],2))))/(2*3.14*covariance[0]*covariance[1])
+	return (math.exp(-(math.pow((x[0]-mean[0]),2)/covariance[0]+math.pow((x[1]-mean[1]),2)/covariance[1])))/(2*3.14*math.sqrt(covariance[0]*covariance[1]))
 
 correct = 0
 total = 0
@@ -72,15 +74,24 @@ for key, value in test_data.iteritems():
 		max_val = 0
 		max_violation = ''
 		for k, val in models.iteritems():
+			"""
 			for mean, var in zip(val.means_, val.covariances_):
 				temp = gaussian_value(values, mean, [var[0][0],var[1][1]])
 				if (temp > max_val):
 					max_violation = k
 					max_val = temp
-			if max_violation == key:
-				correct = correct+1
-			total = total + 1
-			print total
+			"""
+			a = val.predict(values.reshape(1, -1))
+			#print val.means_[a], val.covariances_[a][0], val.covariances_[a][0][0][0], val.covariances_[a][0][1][1]
+			temp = gaussian_value(values, val.means_[a][0], [val.covariances_[a][0][0][0], val.covariances_[a][0][1][1]]) 
+			if (temp > max_val):
+					max_violation = k
+					max_val = temp
+
+		if max_violation == key:
+			correct = correct+1
+		total = total + 1
+		print total, "of", len(test_data)
 
 print "correct = ", correct, "total = ", total 
 print "accuracy = ",
