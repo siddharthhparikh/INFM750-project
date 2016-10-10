@@ -24,6 +24,11 @@ class gmm_classifier(BaseEstimator, ClassifierMixin):
 	def fit(self, X, y):
 		#print X, violations
 		X, y = check_X_y(X, y)
+		"""
+		if len(X) == 1:
+			y = np.reshape(y, (-1, 1))
+			X = np.reshape(X, (-1, 1))
+		"""
 		self.classes_ = unique_labels(y)
 		data = self.make_dictionary(X, y)
 		self.m = self.generate_model(data)
@@ -35,10 +40,8 @@ class gmm_classifier(BaseEstimator, ClassifierMixin):
 		for cord,viol in zip(X,violations):
 			if data.has_key(viol):
 				data[viol].append([float(x) for x in cord])
-				#data[viol].append([float(cord[0]), float(cord[1])])
 			else:
 				data[viol] = [[float(x) for x in cord]]
-				#data[viol] = [[float(cord[0]), float(cord[1])]]
 		return data
 
 	def generate_model(self, data):

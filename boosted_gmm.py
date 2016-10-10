@@ -19,11 +19,10 @@ test_data_list = []
 train_data_list = []
 for key,value in data.iteritems():
 	if len(value) > 15000:
-		train_data_list.append(value[:15000])
-		test_data_list.append(value[15000:19000])
-
-random.shuffle(train_data_list)
-random.shuffle(test_data_list)
+		for val in value[:15000]:
+			train_data_list.append(val)
+		for val in value[15000:19000]:
+			test_data_list.append(val)
 
 del data
 """
@@ -32,7 +31,7 @@ train_data_label = np.array([[train_data_list[0][2]]])
 test_data = np.empty(4000)
 test_data_label = np.empty(4000)
 """
-
+"""
 train_data = np.zeros((15000,2))
 train_data_label = []
 test_data = np.zeros((4000,2))
@@ -53,6 +52,23 @@ for item in test_data_list[0]:
 
 del test_data_list
 del train_data_list
+"""
 
-regr = AdaBoostRegressor(gmm_classifier(),n_estimators=300)
-regr.fit(train_data, train_data_label)
+train_data = list()
+train_data_label = list()
+test_data = list()
+test_data_label = list()
+
+random.shuffle(train_data_list)
+random.shuffle(test_data_list)
+
+for item in train_data_list:
+	train_data.append([item[0], item[1]])
+	train_data_label.append(item[2])
+for item in test_data_list:
+	test_data.append([item[0], item[1]])
+	test_data_label.append(item[2])
+
+print len(train_data), len(train_data_label), len(train_data_list)
+regr = AdaBoostRegressor(gmm_classifier(),n_estimators=1)
+regr.fit(train_data,train_data_label)
