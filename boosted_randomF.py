@@ -1,7 +1,7 @@
-import matplotlib.pyplot as plt
-import csv 
-from GMM_classifier import gmm_classifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import AdaBoostRegressor
+import csv 
 import random
 import numpy as np
 
@@ -23,8 +23,8 @@ for key,value in data.iteritems():
 			train_data_list.append(val)
 		for val in value[15000:19000]:
 			test_data_list.append(val)
-
 del data
+
 """
 train_data = np.array([[train_data_list[0][0], train_data_list[0][1]]])
 train_data_label = np.array([[train_data_list[0][2]]])
@@ -76,9 +76,10 @@ for item in test_data_list:
 	test_data.append([item[0], item[1]])
 	test_data_label.append(d[item[2]])
 
-print len(train_data), len(train_data_label), len(train_data_list)
-regr = AdaBoostRegressor(gmm_classifier(),n_estimators=10)
+
+regr = AdaBoostRegressor(RandomForestClassifier(),n_estimators=100)
 regr.fit(train_data,train_data_label)
+print "fitting is done"
 y_predict = regr.predict(test_data)
 print y_predict
 correct = 0

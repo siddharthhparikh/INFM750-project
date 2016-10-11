@@ -52,7 +52,7 @@ class gmm_classifier(BaseEstimator, ClassifierMixin):
 		return m
 
 	def fit_samles(self, samples):
-		gmix = mixture.BayesianGaussianMixture(n_components=len(samples), covariance_type='full', max_iter=1000, verbose=1).fit(samples)
+		gmix = mixture.BayesianGaussianMixture(n_components=20, covariance_type='full', max_iter=1000, verbose=1).fit(samples)
 		return gmix
 	
 	def predict(self, X, y=None):
