@@ -43,11 +43,12 @@ for key,value in data.iteritems():
 print "data list done"
 del data
 
-division = 10000
+division = 1000
 lat_interval = (lat_max-lat_min)/division
 long_interval = (long_max-long_min)/division
 
 count_in_grid = [[[0,0,0,0] for i in range(division)] for j in range(division)]
+print "array init done"
 
 for i in range(division):
 	print i, " of ", division
