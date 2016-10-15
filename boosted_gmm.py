@@ -77,7 +77,7 @@ for item in test_data_list:
 	test_data_label.append(d[item[2]])
 
 print len(train_data), len(train_data_label), len(train_data_list)
-regr = AdaBoostRegressor(gmm_classifier(),n_estimators=10)
+regr = gmm_classifier()
 regr.fit(train_data,train_data_label)
 y_predict = regr.predict(test_data)
 print y_predict
