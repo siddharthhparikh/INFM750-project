@@ -99,6 +99,7 @@ for i in range(lat_range_min, lat_range_max):
 					1, 
 					1,
 					facecolor=color,
+					linewidth=0,
 				)
 			)
 
