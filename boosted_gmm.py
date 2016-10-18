@@ -6,24 +6,30 @@ import random
 import numpy as np
 
 data = {}
-with open('datasets/data_boston.csv', 'r') as csvfile:
+with open('datasets/data_mgm.csv', 'r') as csvfile:
 	csvfile.readline()
 	file = csv.reader(csvfile, delimiter=',')
 	for row in file:
-		if data.has_key(row[5]):
-			data[row[5]].append([float(row[14]), float(row[15]), row[5]])
-		else:
-			data[row[5]] = [[float(row[14]), float(row[15]), row[5]]]
+		if row[23] != '' and row[24] != '':
+			if data.has_key(row[11]):
+				data[row[11]].append([float(row[23]), float(row[24]), row[11]])
+			else:
+				data[row[11]] = [[float(row[23]), float(row[24]), row[11]]]
 
 test_data_list = []
 train_data_list = []
+violation_map = {}
+i=0
 for key,value in data.iteritems():
-	if len(value) > 15000:
-		for val in value[:15000]:
+	random.shuffle(value)
+	if len(value) > 3500:
+		violation_map[key] = i
+		i = i+1
+		for val in value[:2700]:
 			train_data_list.append(val)
-		for val in value[15000:19000]:
+		for val in value[2700:3500]:
 			test_data_list.append(val)
-
+		
 del data
 """
 train_data = np.array([[train_data_list[0][0], train_data_list[0][1]]])
@@ -54,13 +60,6 @@ del test_data_list
 del train_data_list
 """
 
-d = {
-	'Improper storage trash: res' : 0,
-	'Overgrown Weeds On Property' : 1,
-	'Failure clear sidewalk - snow' : 2,
-	'Overfilling of barrel/dumpster' : 3
-}
-
 train_data = list()
 train_data_label = list()
 test_data = list()
@@ -71,15 +70,17 @@ random.shuffle(test_data_list)
 
 for item in train_data_list:
 	train_data.append([item[0], item[1]])
-	train_data_label.append(d[item[2]])
+	train_data_label.append(violation_map[item[2]])
 for item in test_data_list:
 	test_data.append([item[0], item[1]])
-	test_data_label.append(d[item[2]])
+	test_data_label.append(violation_map[item[2]])
 
 print len(train_data), len(train_data_label), len(train_data_list)
 regr = gmm_classifier()
 regr.fit(train_data,train_data_label)
+print "After fit"
 y_predict = regr.predict(test_data)
+print "After predict"
 print y_predict
 correct = 0
 for a,b in zip(y_predict, test_data_label):
