@@ -103,7 +103,7 @@ for i in range(lat_range_min, lat_range_max):
 				)
 			)
 
-fig.savefig('rect.png', dpi=90, bbox_inches='tight')
+fig.savefig('rect.png', dpi=1000, bbox_inches='tight')
 plt.show()
 """
 fig1 = plt.figure()
