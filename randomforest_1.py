@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Oct 10 18:55:00 2016
-
 @author: Viral-PC
 """
 
@@ -9,6 +8,8 @@ Created on Mon Oct 10 18:55:00 2016
 import csv 
 #from GMM_classifier import gmm_classifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn import linear_model
+#from sklearn.neural_network import MLPClassifier
 import random
 #import numpy as np
 import os
@@ -25,9 +26,10 @@ with open('data_boston.csv', 'r') as csvfile:
 
 test_data_list = []
 train_data_list = []
-target_data_list=[]
+
 for key,value in data.iteritems():
-	if len(value) > 15000:
+     value=random.sample(value,len(value))
+     if len(value) > 15000:
 		for val in value[:15000]:
 			train_data_list.append(val)   
 		for val in value[15000:19000]:
@@ -54,5 +56,49 @@ for item in test_data_list:
 rf = RandomForestClassifier()
 rf.fit(train_data, train_data_label)
 #print rf.predict(test_data)
+print "Random forest"
 print rf.score(test_data,test_data_label)
 #savetxt('Data/submission2.csv', rf.predict(test_data_list), delimiter=',', fmt='%f')
+
+#Logistic Regression
+logistic = linear_model.LogisticRegression()
+logistic.fit(train_data, train_data_label)
+
+print "Logistic Regression"
+print logistic.score(test_data,test_data_label)
+
+#SVM
+
+from sklearn import svm
+#svm_model = svm.SVC(decision_function_shape='ovo')
+svm_model = svm.SVC()
+svm_model.fit(train_data, train_data_label)
+
+print "SVM"
+print svm_model.score(test_data,test_data_label)
+
+#Decision Tree
+from sklearn import tree
+#import pydotplus
+dt = tree.DecisionTreeClassifier()
+dt = dt.fit(train_data, train_data_label)
+
+print "Decision Tree"
+print dt.score(test_data,test_data_label)
+"""
+from IPython.display import Image  
+dot_data = tree.export_graphviz(dt, out_file=None, 
+                         feature_names=train_data,  
+                         class_names=train_data_label,  
+                         filled=True, rounded=True,  
+                         special_characters=True)  
+graph = pydotplus.graph_from_dot_data(dot_data)  
+Image(graph.create_png())  
+"""
+#Neural Network
+"""
+nn = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1)
+nn.fit(train_data, train_data_label)
+
+print nn.score(test_data, test_data_label)
+"""
