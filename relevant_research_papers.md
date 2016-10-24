@@ -73,4 +73,8 @@ this paper will help us understand how hmm model can be implemented in predict w
 **paper 5**
 
 talks about different spatial and temporal clustering techniques
-http://www.sciencedirect.com/science/article/pii/S0167587700001999
+[paper link] (http://www.sciencedirect.com/science/article/pii/S0167587700001999)
+
+**paper 6**
+st-dbscan clustering technique for spatial and temporal features.
+[paper link] (http://www.sciencedirect.com/science/article/pii/S0169023X06000218)
