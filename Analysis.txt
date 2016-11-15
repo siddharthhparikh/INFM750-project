@@ -1,0 +1,66 @@
+Analysis
+
+Experiment 1 - regression model 
+
+Predicting median household income based on type of violation, latitude, longitude, and median education level of the location (Zip-code)
+
+Used linear regression to predict the range
+
+Results:
+
+R2 value varies from 0.42 to 0.47
+
+Experiment 2 - predicting ranges
+
+Predicting median household income range based on type of violation, latitude, longitude, and median education level of the location (Zip code)
+
+Used logistic regression to predict the income range
+
+Income ranges
+0-10000
+10000-20000
+and so on
+Accuracy ~ 70%
+
+Income ranges
+0-25000
+25000-50000
+and so on
+Accuracy ~ 95%
+
+
+Previous Experiments:
+
+Method proposed - Gaussian Mixture Modeling
+
+Input parameters - Latitude and Longitude
+
+1. Find Gaussian distributions for each violation using sklearn's GMM library. For every violation we have n (n varies per violation) Gaussian distributions, each with mean and variance value
+
+2. Take a test data point find the Gaussian which has maximum probability according to the multivariate Gaussian formula (Google and take image)
+
+3. Find the Gaussian with maximum probability and predict that violation from which that particular Gaussian belong.
+
+4. Calculate 0-1 loss based on the correct-incorrect prediction
+
+Results
+
+Accuracy ~ 40% to 43%
+
+Compared against traditional classification algorithms:
+
+Random Forest
+Accuracy 
+Logistic Regression
+Accuracy
+SVN
+Accuracy
+Decision Trees
+Accuracy
+
+
+Conclusion:
+
+Most of the traditional methods performs better than our proposed method. After visualizing the data, we can not see any clusters forming. Our accuracy or any accuracy calculated using any algorithm can not be justified because classification based on only latitude and longitude is not possible because there are not clear clusters in the plot shown below
+
+

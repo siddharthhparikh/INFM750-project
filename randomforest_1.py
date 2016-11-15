@@ -13,7 +13,6 @@ from sklearn import linear_model
 import random
 #import numpy as np
 import os
-os.chdir("C:\Viral\Courses\INFM 750\Data")
 data = {}
 with open('data_boston.csv', 'r') as csvfile:
 	csvfile.readline()
