@@ -9,7 +9,7 @@ import csv
 #from GMM_classifier import gmm_classifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import linear_model
-#from sklearn.neural_network import MLPClassifier
+from sklearn.neural_network import MLPClassifier
 import random
 #import numpy as np
 import os
@@ -56,7 +56,18 @@ rf = RandomForestClassifier()
 rf.fit(train_data, train_data_label)
 #print rf.predict(test_data)
 print "Random forest"
-print rf.score(test_data,test_data_label)
+#print rf.score(test_data,test_data_label)
+
+y_rf_predict = rf.predict(test_data)
+print "After predict"
+#print y_rf_predict
+correct = 0
+for a,b in zip(y_rf_predict, test_data_label):
+	if a == b:
+		correct = correct+1
+
+print float(correct)/len(test_data_label)
+
 #savetxt('Data/submission2.csv', rf.predict(test_data_list), delimiter=',', fmt='%f')
 
 #Logistic Regression
@@ -64,8 +75,16 @@ logistic = linear_model.LogisticRegression()
 logistic.fit(train_data, train_data_label)
 
 print "Logistic Regression"
-print logistic.score(test_data,test_data_label)
+#print logistic.score(test_data,test_data_label)
+y_logistic_predict = logistic.predict(test_data)
+print "After predict"
+#print y_logistic_predict
+correct = 0
+for a,b in zip(y_logistic_predict, test_data_label):
+	if a == b:
+		correct = correct+1
 
+print float(correct)/len(test_data_label)
 #SVM
 
 from sklearn import svm
@@ -74,7 +93,16 @@ svm_model = svm.SVC()
 svm_model.fit(train_data, train_data_label)
 
 print "SVM"
-print svm_model.score(test_data,test_data_label)
+#print svm_model.score(test_data,test_data_label)
+y_svm_predict = svm_model.predict(test_data)
+print "After predict"
+#print y_svm_predict
+correct = 0
+for a,b in zip(y_svm_predict, test_data_label):
+	if a == b:
+		correct = correct+1
+
+print float(correct)/len(test_data_label)
 
 #Decision Tree
 from sklearn import tree
@@ -83,7 +111,18 @@ dt = tree.DecisionTreeClassifier()
 dt = dt.fit(train_data, train_data_label)
 
 print "Decision Tree"
-print dt.score(test_data,test_data_label)
+#print dt.score(test_data,test_data_label)
+
+y_dt_predict = dt.predict(test_data)
+print "After predict"
+#print y_dt_predict
+correct = 0
+for a,b in zip(y_dt_predict, test_data_label):
+	if a == b:
+		correct = correct+1
+
+print float(correct)/len(test_data_label)
+
 """
 from IPython.display import Image  
 dot_data = tree.export_graphviz(dt, out_file=None, 
@@ -95,9 +134,8 @@ graph = pydotplus.graph_from_dot_data(dot_data)
 Image(graph.create_png())  
 """
 #Neural Network
-"""
+
 nn = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1)
 nn.fit(train_data, train_data_label)
 
 print nn.score(test_data, test_data_label)
-"""
