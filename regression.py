@@ -1,4 +1,5 @@
 def calculate_income_range(income):
+	"""
 	if income < 25000:
 		return 0
 	elif income < 50000:
@@ -7,10 +8,10 @@ def calculate_income_range(income):
 		return 2
 	else:
 		return 3
-	
 	"""
 	return int(income/10000)
-	"""
+	
+
 import csv 
 import random
 from sklearn import linear_model
@@ -18,7 +19,7 @@ import numpy as np
 data = {}
 violation = {}
 i=0
-with open('datasets/data_boston.csv', 'r') as csvfile:
+with open('datasets/data_boston-2.csv', 'r') as csvfile:
 	csvfile.readline()
 	file = csv.reader(csvfile, delimiter=',')
 	for row in file:
@@ -27,9 +28,9 @@ with open('datasets/data_boston.csv', 'r') as csvfile:
 				violation[row[5]] = i
 				i=i+1
 			if data.has_key(row[5]):
-				data[row[5]].append([float(row[14]), float(row[15]), float(row[18]), violation[row[5]], calculate_income_range(float(row[17]))])
+				data[row[5]].append([float(row[14]), float(row[15]), float(row[18]), float(row[21]), violation[row[5]], calculate_income_range(float(row[17]))])
 			else:
-				data[row[5]] = [[float(row[14]), float(row[15]), float(row[18]), violation[row[5]], calculate_income_range(float(row[17]))]]
+				data[row[5]] = [[float(row[14]), float(row[15]), float(row[18]), float(row[21]), violation[row[5]], calculate_income_range(float(row[17]))]]
 
 test_data_list = []
 train_data_list = []
@@ -53,10 +54,10 @@ random.shuffle(train_data_list)
 random.shuffle(test_data_list)
 
 for item in train_data_list:
-	train_data.append([item[0], item[1], item[2], item[3]])
+	train_data.append([item[0], item[1], item[2], item[3], item[5]])
 	train_data_label.append(item[4])
 for item in test_data_list:
-	test_data.append([item[0], item[1], item[2], item[3]])
+	test_data.append([item[0], item[1], item[2], item[3], item[5]])
 	test_data_label.append(item[4])
 
 """
