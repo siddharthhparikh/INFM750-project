@@ -21,7 +21,8 @@ import numpy as np
 data = {}
 violation = {}
 i=0
-with open('datasets/data_boston-2.csv', 'r') as csvfile:
+#with open('datasets/data_boston-2.csv', 'r') as csvfile:
+with open('C:\Viral\Courses\INFM 750\Data\data_boston.csv', 'r') as csvfile:
 	csvfile.readline()
 	file = csv.reader(csvfile, delimiter=',')
 	for row in file:
@@ -32,7 +33,12 @@ with open('datasets/data_boston-2.csv', 'r') as csvfile:
 			if data.has_key(row[12]):
 				data[row[12]][-1] = data[row[12]][-1] + 1 
 			else:
-				data[row[12]] = [float(row[18]), float(row[21]), float(row[17]), 1]
+				data[row[12]] = [float(row[18]), float(row[21]), float(row[17]), float(row[20]), 1]
+
+##normalizing the volume of violations with the population of zipcodes
+for key, value in data.iteritems():
+    value[-1] = value[-1]/value[-2]
+
 
 j=0
 score = 0
@@ -43,8 +49,8 @@ for key, value in data.iteritems():
 		data_list.append(value)
 
 from sklearn.linear_model import Ridge
-
-while j<1000:
+#print data_list
+while j<10000:
 	test_data_list = []
 	test_data_label = []
 	train_data_list = []
@@ -60,7 +66,6 @@ while j<1000:
 			train_data_list.append(value[:-1])
 			train_data_label.append(value[-1])
 		i=i+1
-
 
 	regr = linear_model.LinearRegression()
 	regr.fit(train_data_list, train_data_label)

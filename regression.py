@@ -19,7 +19,8 @@ import numpy as np
 data = {}
 violation = {}
 i=0
-with open('datasets/data_boston-2.csv', 'r') as csvfile:
+#with open('datasets/data_boston-2.csv', 'r') as csvfile:
+with open('C:\Viral\Courses\INFM 750\Data\data_boston.csv', 'r') as csvfile:
 	csvfile.readline()
 	file = csv.reader(csvfile, delimiter=',')
 	for row in file:
