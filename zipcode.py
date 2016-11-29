@@ -36,8 +36,11 @@ with open('C:\Viral\Courses\INFM 750\Data\data_boston.csv', 'r') as csvfile:
 				data[row[12]] = [float(row[18]), float(row[21]), float(row[17]), float(row[20]), 1]
 
 ##normalizing the volume of violations with the population of zipcodes
+dat = {}
 for key, value in data.iteritems():
-    value[-1] = value[-1]/value[-2]
+    if value[-1] > 2000:
+        dat[key] = data[key]
+        dat[key][-1] = value[-1]/value[-2]
 
 
 j=0
@@ -45,32 +48,41 @@ score = 0
 err = 0
 
 data_list = []
-for key, value in data.iteritems():
+for key, value in dat.iteritems():
 		data_list.append(value)
 
 from sklearn.linear_model import Ridge
 #print data_list
-while j<10000:
+while j<1:
 	test_data_list = []
 	test_data_label = []
 	train_data_list = []
 	train_data_label = []
 	i=0
 	
-	random.shuffle(data_list)
-	for value in data_list:
-		if i>22:
-			test_data_list.append(value[:-1])
+	random.shuffle(data_list);     print len(data_list); print data_list
+#	for value in data_list:
+#		if i>22: 
+#			test_data_list.append(value[:-2])
+#			test_data_label.append(value[-1])
+#		else:
+#			train_data_list.append(value[:-2])
+#			train_data_label.append(value[-1])
+#		i=i+1
+
+ 	for value in data_list:
+		if i>20:
+			test_data_list.append(value[:-2])
 			test_data_label.append(value[-1])
 		else:
-			train_data_list.append(value[:-1])
+			train_data_list.append(value[:-2])
 			train_data_label.append(value[-1])
 		i=i+1
-
+  
+    #print "test :"; print test_data_list; print "train : "; print train_data_list;  
 	regr = linear_model.LinearRegression()
 	regr.fit(train_data_list, train_data_label)
-
-	err = err + r2_score(test_data_label, regr.predict(test_data_list))
+	err = err + r2_score(test_data_label, regr.predict(test_data_list)); #print r2_score(test_data_label, regr.predict(test_data_list))
 	# Explained variance score: 1 is perfect prediction
 	score = score + regr.score(test_data_list, test_data_label)
 	
