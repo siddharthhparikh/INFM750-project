@@ -60,7 +60,7 @@ while j<1:
 	train_data_label = []
 	i=0
 	
-	random.shuffle(data_list);     print len(data_list); print data_list
+	random.shuffle(data_list)
 #	for value in data_list:
 #		if i>22: 
 #			test_data_list.append(value[:-2])
