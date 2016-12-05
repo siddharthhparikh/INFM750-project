@@ -1,0 +1,69 @@
+For neurons:4 lookback:10 zipcode:2215 Training size:70
+Train Score: 30.74 RMSE
+Test Score: 61.65 RMSE
+For neurons:4 lookback:10 zipcode:2108 Training size:70
+Train Score: 11.42 RMSE
+Test Score: 29.88 RMSE
+For neurons:4 lookback:10 zipcode:2109 Training size:70
+Train Score: 10.37 RMSE
+Test Score: 18.92 RMSE
+For neurons:4 lookback:10 zipcode:2111 Training size:70
+Train Score: 17.72 RMSE
+Test Score: 36.11 RMSE
+For neurons:4 lookback:10 zipcode:2113 Training size:70
+Train Score: 42.59 RMSE
+Test Score: 89.01 RMSE
+For neurons:4 lookback:10 zipcode:2114 Training size:70
+Train Score: 110.12 RMSE
+Test Score: 160.94 RMSE
+For neurons:4 lookback:10 zipcode:2115 Training size:70
+Train Score: 60.40 RMSE
+Test Score: 74.15 RMSE
+For neurons:4 lookback:10 zipcode:2116 Training size:70
+Train Score: 77.49 RMSE
+Test Score: 140.50 RMSE
+For neurons:4 lookback:10 zipcode:2118 Training size:70
+Train Score: 79.68 RMSE
+Test Score: 89.23 RMSE
+For neurons:4 lookback:10 zipcode:2119 Training size:70
+Train Score: 75.47 RMSE
+Test Score: 138.62 RMSE
+For neurons:4 lookback:10 zipcode:2121 Training size:70
+Train Score: 48.11 RMSE
+Test Score: 141.73 RMSE
+For neurons:4 lookback:10 zipcode:2122 Training size:70
+Train Score: 38.91 RMSE
+Test Score: 65.60 RMSE
+For neurons:4 lookback:10 zipcode:2124 Training size:70
+Train Score: 74.42 RMSE
+Test Score: 139.63 RMSE
+For neurons:4 lookback:10 zipcode:2125 Training size:70
+Train Score: 59.62 RMSE
+Test Score: 83.20 RMSE
+For neurons:4 lookback:10 zipcode:2126 Training size:70
+Train Score: 71.73 RMSE
+Test Score: 118.08 RMSE
+For neurons:4 lookback:10 zipcode:2127 Training size:70
+Train Score: 71.53 RMSE
+Test Score: 133.01 RMSE
+For neurons:4 lookback:10 zipcode:2128 Training size:70
+Train Score: 56.83 RMSE
+Test Score: 294.98 RMSE
+For neurons:4 lookback:10 zipcode:2130 Training size:70
+Train Score: 40.16 RMSE
+Test Score: 106.69 RMSE
+For neurons:4 lookback:10 zipcode:2131 Training size:70
+Train Score: 38.40 RMSE
+Test Score: 87.87 RMSE
+For neurons:4 lookback:10 zipcode:2132 Training size:70
+Train Score: 18.89 RMSE
+Test Score: 54.23 RMSE
+For neurons:4 lookback:10 zipcode:2134 Training size:70
+Train Score: 132.66 RMSE
+Test Score: 160.47 RMSE
+For neurons:4 lookback:10 zipcode:2135 Training size:70
+Train Score: 107.14 RMSE
+Test Score: 179.55 RMSE
+For neurons:4 lookback:10 zipcode:2136 Training size:70
+Train Score: 37.44 RMSE
+Test Score: 76.39 RMSE
