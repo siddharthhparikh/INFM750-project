@@ -136,13 +136,11 @@ while j<1000:
 #    for col in df_train_data_label:
 #        df_train_data_label[col] = (df_train_data_label[col] - df_train_data_label[col].mean())/df_train_data_label[col].std(ddof=0)
 
-<<<<<<< HEAD:zipcode.py
 ##polynomial regression
 #    poly = PolynomialFeatures(degree=2)
 #    df_train_data_list_poly = poly.fit_transform(df_train_data_list)
 #    df_test_data_list_poly = poly.fit_transform(df_test_data_list)
 #    
-=======
     for value in data_list:
         if i>18:
             test_data_list.append(value[:-2])
@@ -166,7 +164,6 @@ while j<1000:
     for col in df_train_data_label:
         df_train_data_label[col] = (df_train_data_label[col] - df_train_data_label[col].mean())/df_train_data_label[col].std(ddof=0)
 
->>>>>>> 6c1fb023788e784aa005e47e44649d928d4ef8a4:zipcode_Naam_hu_maari_rite_aapish.py
 #    print df_test_data_list
 #    print df_test_data_label
 #    print df_train_data_list
@@ -174,7 +171,6 @@ while j<1000:
 #    test_data = pd.Dataframe.from_dict(test_data_list,orient='index')
 #    test_label = pd.Dataframe.from_dict(test_data_label,orient='index')
 #print "test :"; print test_data_list; print "train : "; print train_data_list;
-<<<<<<< HEAD:zipcode.py
     
 #    regr = linear_model.LinearRegression()
 #    regr.fit(df_train_data_list, df_train_data_label)
@@ -182,7 +178,6 @@ while j<1000:
 #    # Explained variance score: 1 is perfect prediction
 #    score = score + regr.score(df_test_data_list, df_test_data_label)
 
-=======
     regr = linear_model.LinearRegression()
     regr.fit(df_train_data_list, df_train_data_label)
     y_pred = regr.predict(df_test_data_list)
@@ -191,13 +186,6 @@ while j<1000:
     err = err + r2score(df_test_data_label, regr.predict(df_test_data_list)); #print r2_score(test_data_label, regr.predict(test_data_list))
     # Explained variance score: 1 is perfect prediction
     score = score + regr.score(df_test_data_list, df_test_data_label)
->>>>>>> 6c1fb023788e784aa005e47e44649d928d4ef8a4:zipcode_Naam_hu_maari_rite_aapish.py
 
     j=j+1
-
-<<<<<<< HEAD:zipcode.py
-#print err
-=======
-
->>>>>>> 6c1fb023788e784aa005e47e44649d928d4ef8a4:zipcode_Naam_hu_maari_rite_aapish.py
 print err/j
