@@ -21,12 +21,32 @@ with open('datasets/data_boston-2.csv', 'r') as csvfile:
 
 temp = {}
 for key, value in d.iteritems():
-    if len(value) >= 76:
+    if len(value) == 100:
         temp[key] = value
     
 d = temp
 del temp
 
+count = 0
 for key, value in d.iteritems():
-    for k, v in value.iteritems():
-        print key, k, v
+    #print str(key)+',',
+    #with open('csv/'+str(key)+'.csv', 'w+') as csvfile:
+    average = 0
+    for j in range(2008,2017):
+        for i in range(1,13):
+            count += 1
+            if value.has_key((i,j)):
+                average += value[(i,j)]
+                #csvfile.write(str(value[(i,j)]))
+            #csvfile.write('\n')
+    print average/100
+count = 0
+"""
+for key, value in d.iteritems():
+    if key == 2108:
+        for k, v in value.iteritems():
+            count += 1
+            print key, k, v
+
+print count
+"""
