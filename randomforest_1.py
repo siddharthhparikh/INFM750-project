@@ -14,14 +14,54 @@ import random
 #import numpy as np
 import os
 data = {}
-with open('data_boston.csv', 'r') as csvfile:
+
+import itertools
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import numpy as np
+
+def plot_confusion_matrix(cm, classes,
+                          normalize=False,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues):
+    """
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    """
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=45)
+    plt.yticks(tick_marks, classes)
+
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        print("Normalized confusion matrix")
+    else:
+        print('Confusion matrix, without normalization')
+
+    print(cm)
+
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, cm[i, j],
+                 horizontalalignment="center",
+                 color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+
+with open('datasets/data_boston-2.csv', 'r') as csvfile:
 	csvfile.readline()
 	file = csv.reader(csvfile, delimiter=',')
 	for row in file:
-		if data.has_key(row[5]):
-			data[row[5]].append([float(row[14]), float(row[15]), row[5]])
-		else:
-			data[row[5]] = [[float(row[14]), float(row[15]), row[5]]]
+		if row[17] != '' and row[18] != '':
+			if data.has_key(row[5]):
+				data[row[5]].append([float(row[14]), float(row[15]), row[5]])
+			else:
+				data[row[5]] = [[float(row[14]), float(row[15]), row[5]]]
 
 test_data_list = []
 train_data_list = []
@@ -69,7 +109,14 @@ for a,b in zip(y_rf_predict, test_data_label):
 print float(correct)/len(test_data_label)
 
 #savetxt('Data/submission2.csv', rf.predict(test_data_list), delimiter=',', fmt='%f')
-
+cnf_matrix = confusion_matrix(test_data_label, y_rf_predict,labels=["Improper storage trash: res", "Overgrown Weeds On Property", "Overfilling of barrel/dumpster", "Failure clear sidewalk - snow"])
+# Plot non-normalized confusion matrix
+plt.figure()
+class_names = ["Improper storage trash: res", "Overgrown Weeds On Property", "Overfilling of barrel/dumpster", "Failure clear sidewalk - snow"]
+plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
+                      title='Confusion matrix, with normalization')
+plt.show()
+exit()
 #Logistic Regression
 logistic = linear_model.LogisticRegression()
 logistic.fit(train_data, train_data_label)
@@ -78,12 +125,12 @@ print "Logistic Regression"
 #print logistic.score(test_data,test_data_label)
 y_logistic_predict = logistic.predict(test_data)
 print "After predict"
-#print y_logistic_predict
 correct = 0
 for a,b in zip(y_logistic_predict, test_data_label):
 	if a == b:
 		correct = correct+1
 
+exit()
 print float(correct)/len(test_data_label)
 #SVM
 
@@ -134,8 +181,9 @@ graph = pydotplus.graph_from_dot_data(dot_data)
 Image(graph.create_png())  
 """
 #Neural Network
-
+"""
 nn = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1)
 nn.fit(train_data, train_data_label)
 
 print nn.score(test_data, test_data_label)
+"""
