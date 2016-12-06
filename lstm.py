@@ -36,6 +36,7 @@ for key, value in d.iteritems():
         for i in range(1,13):
             count += 1
             if value.has_key((i,j)):
+                print (i,j)
                 average += value[(i,j)]
                 #csvfile.write(str(value[(i,j)]))
             #csvfile.write('\n')
