@@ -11,8 +11,31 @@ def calculate_income_range(income):
     """
     return int(income/10000)
 
+def r2score(y_actual, y_pred):
+    tss = 0
+    mse = 0
+    for a,b in zip(y_actual['volumeofviolations'], y_pred):
+        #print a, b[0]
+        mse += (a-b[0])*(a-b[0])
+
+    mse = mse/len(y_pred)
+    #print "len(y_actual[0]) = ", len(y_actual['volumeofviolations'])
+    avg = 0
+    for a in y_actual['volumeofviolations']:
+        avg += a
+    avg = avg/len(y_actual['volumeofviolations'])
+    #print "avg = ", avg
+    for a in y_actual['volumeofviolations']:
+        #print a
+        tss += (a-avg)*(a-avg)  
+
+#    print len(y_pred)*(mse/tss)
+    r2 = 1-len(y_pred)*(mse/tss)
+    return r2
+
 import csv
 import random
+import matplotlib.pyplot as plt
 from sklearn import linear_model
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import r2_score
@@ -47,7 +70,7 @@ for key, value in data.iteritems():
 j=0
 score = 0
 err = 0
-
+err_poly = 0
 data_list = []
 for key, value in dat.iteritems():
         data_list.append(value)
@@ -73,7 +96,7 @@ while j<1000:
     
 ##create test and train df 
 
-    train, test = train_test_split(df_data_list, test_size = 0.2)
+    train, test = train_test_split(df_data_list, test_size = 0.3)
 #    print test
     train_data_label = train[['volumeofviolations']]
     train_data_list = train[['medianincome','collegedegree','houseowner']]
@@ -81,12 +104,23 @@ while j<1000:
     test_data_list = test[['medianincome','collegedegree','houseowner']]
 
  #   print train
-    
+    ## linear regression    
     regr = linear_model.LinearRegression()
     regr.fit(train_data_list, train_data_label)
-    err = err + r2_score(test_data_label, regr.predict(test_data_list)); 
+    err = err + score(test_data_label, regr.predict(test_data_list)); 
+    #err = err + score(test_data_label, regr.predict(test_data_list)); 
+    
+    ##polynomial regression
+    poly = PolynomialFeatures(degree=2)
+    X_ = poly.fit_transform(train_data_list)
+    predict_ = poly.fit_transform(test_data_list)
+    
+    clf = linear_model.LinearRegression()
+    clf.fit(X_, train_data_label)
+#    print clf.predict(predict_)    
+    err_poly = err_poly + r2score(test_data_label, clf.predict(predict_)); 
+    #err_poly = err_poly + r2score(test_data_label, clf.predict(predict_));     
     # Explained variance score: 1 is perfect prediction
-    score = score + regr.score(test_data_list, test_data_label)
 
 #    for value in data_list:
 #        if i>20:
@@ -134,4 +168,6 @@ while j<1000:
     j=j+1
 
 #print err
+
 print err/j
+print err_poly/j
